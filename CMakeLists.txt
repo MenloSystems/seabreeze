@@ -15,7 +15,7 @@ include(sources.cmake)
 target_compile_definitions(SeaBreeze PRIVATE BUILD_DLL=1)
 
 if (WIN32)
-    target_compile_definitions(SeaBreeze PRIVATE _WINDOWS=1)
+    target_compile_definitions(SeaBreeze PRIVATE _WINDOWS=1 UNICODE=1)
     target_link_libraries(SeaBreeze PRIVATE ws2_32 winusb setupapi)
 else()
     target_link_libraries(SeaBreeze usb-1.0)
