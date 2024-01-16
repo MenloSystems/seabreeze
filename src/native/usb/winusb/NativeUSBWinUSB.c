@@ -38,7 +38,7 @@
 #include <windows.h>
 #include <setupapi.h>
 #include <strsafe.h>
-#include <Winusb.h>
+#include <winusb.h>
 
 #include "native/usb/NativeUSB.h"
 #include "native/usb/winusb/WindowsGUID.h"

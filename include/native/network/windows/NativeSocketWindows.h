@@ -34,7 +34,7 @@
 #include "native/network/Socket.h"
 #include "native/network/Inet4Address.h"
 #include "common/exceptions/BusConnectException.h"
-#include <Winsock2.h>
+#include <winsock2.h>
 #include <string>
 
 namespace seabreeze {
@@ -42,26 +42,26 @@ namespace seabreeze {
     public:
         NativeSocketWindows();
         virtual ~NativeSocketWindows();
-        
+
         virtual void connect(Inet4Address &addr, int port)
                 throw (UnknownHostException, BusConnectException);
         virtual void connect(const std::string hostname, int port)
                 throw (UnknownHostException, BusConnectException);
-        
+
         virtual void close() throw (BusException);
         virtual bool isClosed();
         virtual bool isBound();
-        
+
         virtual int getSOLinger() throw (SocketException);
         virtual void setSOLinger(bool enable, int linger) throw (SocketException);
         virtual unsigned long getReadTimeoutMillis() throw (SocketException);
         virtual void setReadTimeoutMillis(unsigned long timeout) throw (SocketException);
-        
+
         virtual int read(unsigned char *buffer, unsigned long length)
             throw (BusTransferException);
         virtual int write(const unsigned char *buffer, unsigned long length)
             throw (BusTransferException);
-        
+
     private:
         SOCKET sock;
         bool bound;

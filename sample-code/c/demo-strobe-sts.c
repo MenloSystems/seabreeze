@@ -41,6 +41,10 @@
 
 #include "api/SeaBreezeWrapper.h"
 
+#ifdef errno
+#undef errno
+#endif
+
 // global for convenience
 const int spec_index = 0;
 const int strobe_index = 0;
