@@ -21,6 +21,18 @@ else()
     target_link_libraries(SeaBreeze usb-1.0)
 endif()
 
+include(GNUInstallDirs)
+install(TARGETS SeaBreeze
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+install(DIRECTORY include/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/seabreeze
+        FILES_MATCHING PATTERN "*.h"
+)
+
 option(BUILD_EXAMPLES "Build Examples" ON)
 
 if (NOT BUILD_EXAMPLES)
