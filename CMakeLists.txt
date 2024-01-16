@@ -21,5 +21,11 @@ else()
     target_link_libraries(SeaBreeze usb-1.0)
 endif()
 
+option(BUILD_EXAMPLES "Build Examples" ON)
+
+if (NOT BUILD_EXAMPLES)
+    return()
+endif()
+
 add_subdirectory(oceanfx_speed_test)
 add_subdirectory(sample-code)
